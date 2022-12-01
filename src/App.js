@@ -1,7 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+
 
 function App() {
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
   return (
     <div className="App">
  
@@ -66,6 +75,23 @@ function App() {
       </div>
  
     </div>
+    </div>
+    <div>
+      <div style={{display:"flex",justifyContent:"center"}}>
+    <button  style={{backgroundColor:"red",color:"white",padding:"10px"}}onClick={onOpenModal}>our range of garage doors</button></div>
+      <Modal open={open} onClose={onCloseModal} center>
+        <h2>Registration form Responsive</h2>
+        <label for="fname">First name:</label><br/>
+  <input style={{width:"100%", height:"30px"}}type="text" id="fname" name="fname" value="John"/><br/>
+  <label className='label' for="fname">Middle name:</label><br/>
+  <input style={{width:"100%", height:"30px"}}  type="text" id="fname" name="fname" value="John"/><br/>
+  <label for="fname">Last name:</label><br/>
+  <input style={{width:"100%", height:"30px"}}  type="text" id="fname" name="fname" value="John"/><br/>
+  <div style={{display:"flex",justifyContent:"center"}}>
+  <button >SUBMIT</button>
+  </div>
+      </Modal>
+  
     </div>
   </div>
   </div>
